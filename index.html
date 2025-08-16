@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>CNC Контур</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h2>Контур точек</h2>
+  <table id="pointTable">
+    <tr>
+      <th>#</th><th>X</th><th>Z</th><th>Тип</th><th>R</th><th>I</th><th>K</th><th>Напр.</th>
+    </tr>
+  </table>
+  <button onclick="addPoint()">Добавить точку</button>
+  <button onclick="clearPoints()">Очистить точки</button>
+  <h3>Параметры обработки</h3>
+<div id="machiningParams" style="display: none;">
+  <label>Диаметр заготовки: <input type="number" id="stockDiameter" value="60" /></label>
+  <label>Длина заготовки: <input type="number" id="stockLength" value="100" /></label>
+  <label>Количество проходов: <input type="number" id="passCount" value="3" /></label>
+  <label>Безопасный X: <input type="number" id="safeX" value="0" /></label>
+  <label>Безопасный Z: <input type="number" id="safeZ" value="2" /></label>
+</div>
+  <button onclick="generateGCode()">G-код</button>
+
+  <h3>Свойства сегментов</h3>
+  <div id="segmentInfo"></div>
+
+  <pre id="gcodeOutput"></pre>
+
+  <svg id="svg" width="400" height="400" viewBox="-200 -200 400 400"></svg>
+
+  <h3>Управление SVG</h3>
+  <div class="svg-controls">
+    <button id="zoomIn">Увеличить [+]</button>
+    <button id="zoomOut">Уменьшить [–]</button>
+    <button id="panLeft">←</button>
+    <button id="panRight">→</button>
+    <button id="panUp">↑</button>
+    <button id="panDown">↓</button>
+  </div>
+
+  <div id="clickInfo"></div>
+
+  <script src="script.js"></script>
+  <script src="script2.js"></script>
+  <script src="script3.js"></script>
+</body>
+</html>
